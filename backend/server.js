@@ -1,10 +1,16 @@
+require("dotenv").config();
+
+
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/database/database');
 const userRoutes = require("./routes/userRoutes");
 const app = express();
-require("dotenv").config();
+const purchaseRoutes = require("./routes/purchaseRoutes");
+
+app.use("/api/purchases", purchaseRoutes);
+
 
 
 

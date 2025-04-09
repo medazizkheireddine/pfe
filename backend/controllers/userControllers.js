@@ -80,12 +80,13 @@ const registerUser = async (req, res) => {
 
         res.status(201).json({
             message: "User registered successfully",
-            user: { _id: newUser._id, name: newUser.name, email: newUser.email, token:generateToken(user._id) },
+            user: { _id: newUser._id, name: newUser.name, email: newUser.email, token: generateToken(newUser._id) },
         });
     } catch (error) {
         res.status(500).json({ message: "Server error", error });
     }
 };
+
 // @desc Authenticate user & get token
 const loginUser = asyncHandler(async (req, res) => {
     const {email, password} = req.body;
