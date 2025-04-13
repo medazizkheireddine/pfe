@@ -8,8 +8,20 @@ const connectDB = require('./config/database/database');
 const userRoutes = require("./routes/userRoutes");
 const app = express();
 const purchaseRoutes = require("./routes/purchaseRoutes");
+const assetRoutes = require("./routes/assetRoutes");
+const faultyReportRoutes = require("./routes/faultyReportRoutes");
+const materialRequestRoutes = require("./routes/materialRequestRoutes");
+const stockRoutes = require("./routes/stockRoutes");
 
+
+
+// Ensure this line is placed after initializing express.json() and cors middleware.
+app.use("/api/stock", stockRoutes);
+app.use("/api/material-requests", materialRequestRoutes);
+app.use("/api/faulty-reports", faultyReportRoutes);
+app.use("/api/assets", assetRoutes);
 app.use("/api/purchases", purchaseRoutes);
+
 
 
 

@@ -6,6 +6,13 @@ const {
     updatePurchase,
     deletePurchase,
 } = require("../controllers/purchaseController");
+//test
+console.log(createPurchase);
+console.log("createPurchase:", createPurchase);
+console.log("getPurchases:", getPurchases);
+console.log("getPurchaseById:", getPurchaseById);
+console.log("updatePurchase:", updatePurchase);
+console.log("deletePurchase:", deletePurchase);
 const { protect, adminOnly, superAdminOnly } = require("../middleware/authMiddleware");
 
 const router = express.Router();
@@ -24,5 +31,11 @@ router.put("/:id", protect, adminOnly, updatePurchase);
 
 // Delete purchase request (only Super Admin)
 router.delete("/:id", protect, superAdminOnly, deletePurchase);
+
+
+
+console.log("protect:", protect);
+console.log("adminOnly:", adminOnly);
+console.log("superAdminOnly:", superAdminOnly);
 
 module.exports = router;

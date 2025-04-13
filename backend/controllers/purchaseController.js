@@ -1,10 +1,17 @@
+/**
+ * @param {import('express').Request} req
+ * @param {import('express').Response} res
+ */
+
 const asyncHandler = require("express-async-handler");
 const Purchase = require("../models/purchaseRequests");
+
 
 // @desc    Create a new purchase request
 // @route   POST /api/purchases
 // @access  Protected (Admin or Super Admin)
 const createPurchase = asyncHandler(async (req, res) => {
+
     const { itemName, quantity, vendor, notes } = req.body;
 
     // Validate input fields (you can add more validation if needed)
