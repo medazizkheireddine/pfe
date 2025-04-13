@@ -22,8 +22,16 @@ const superAdminOnly = (req, res, next) => {
     }
     next();
 };
+const adminOnly = (req, res, next) => {
+    // Check if the user is authenticated and has an admin role
+    if (req.user && req.user.role === 'admin') {
+        next(); // User is an admin, proceed to the next middleware
+    } else {
+        res.status(403).json({ message: 'Access denied. Admins only.' });
+    }
+};
 
-module.exports = { protect, superAdminOnly };
+module.exports = { protect, superAdminOnly, adminOnly };
 // debug
-   
+
 
