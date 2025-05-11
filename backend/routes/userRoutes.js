@@ -5,7 +5,7 @@ const {
     updateUser,
     deleteUser,
     registerUser,
-    loginUser// ✅ Add this
+    loginUser//
 } = require("../controllers/userControllers");
 
 const { protect, superAdminOnly } = require("../middleware/authMiddleware");
